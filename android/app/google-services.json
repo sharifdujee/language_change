@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "691077887257",
+    "project_id": "push-notification-8a6dd",
+    "storage_bucket": "push-notification-8a6dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691077887257:android:cb2af72d1d013053f6c188",
+        "android_client_info": {
+          "package_name": "com.circel.weather.weather"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUbe-3sqFu1NN2yhzXSsMYXv4ReL-LlYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
