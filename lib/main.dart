@@ -1,13 +1,20 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:weather/UI/public_data/parcel_tracker.dart';
 
 import 'package:weather/UI/screen_one.dart';
+import 'package:weather/bloc/counter_cubit.dart';
 import 'package:weather/firebase_options.dart';
 import 'package:weather/firebase_push_notification/firebase_api.dart';
 import 'package:path_provider/path_provider.dart' as pathProvider;
 import 'package:hive/hive.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:weather/screen/counter_page.dart';
+import 'package:weather/shared/routes.dart';
+import 'package:bloc/bloc.dart';
 
 
 final navigatorKey = GlobalKey<NavigatorState>();
@@ -73,6 +80,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
+      //MaterialApp.router
+      //routes: screenRoute,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       locale: _locale,
@@ -90,9 +100,23 @@ class _MyAppState extends State<MyApp> {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      navigatorKey: navigatorKey,
-      home: const ScreenOne(),
+       //home:  DeliveryTrackerScreen()
+      home: BlocProvider(
+         lazy: false,
+        create: (_) => CounterCubit(),
+    child: const CounterPage(),
+    ),
+      /*navigatorKey: navigatorKey,
+      home: const ScreenOne(),*/
     );
   }
 }
+
+/*final router = GoRouter(routes: [
+  GoRoute(path: 'https://sharifdeveloper.com/',
+  builder: (_, __)=> Scaffold(
+    appBar: AppBar(),
+  )),
+
+]);*/
 

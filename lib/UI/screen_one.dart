@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:weather/UI/screen_two.dart';
 import 'package:weather/main.dart';
 import 'package:weather/shared/color.dart';
 import 'package:weather/shared/text_style.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
 
 class ScreenOne extends StatefulWidget {
+  static const route = '/screen_one';
   const ScreenOne({super.key});
 
   @override
@@ -245,7 +247,19 @@ void selectedDateTime()async{
                       ),
                       child: const Icon(Icons.check),
                     ),
-                  )
+                  ),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pushNamed(context, ScreenTwo.route2);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: const Icon(Icons.navigation),
+                    ),
+                  ),
+
                 ],
               ),
             ),
